@@ -3,7 +3,7 @@
   "description": "Supporting hhvm 4 for as long as possible.",
   "license": "MIT",
   "require": {
-    "hhvm": "^6"
+    "hhvm": ">4"
   },
   "require-dev": {},
   "scripts": {
