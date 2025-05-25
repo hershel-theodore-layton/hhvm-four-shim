@@ -6,7 +6,7 @@ This might not work, but I will try.
 
 ## Installation
 
-If you can depend on `"require": { "hhvm/hhvm": ">4" }` handling from composer.
+If you can depend on `"require": { "hhvm/hhvm": ">=5" }` handling from composer.
 You can simply `composer require` this library and be on your merry way. If
 you use `--ignore-platform-reqs`, you must pin a version. The `0.4.x` range
 contains backports for hhvm 4, and the `0.6.x` range contains forward compatible
