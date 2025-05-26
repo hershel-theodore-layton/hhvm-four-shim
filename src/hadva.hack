@@ -31,9 +31,7 @@ function downgrade_dictish<Tk as arraykey, Tv>(
 /**
  * Like array_to_tuple, but the type information is retained.
  */
-function downgrade_vecish<T>(
-  vec<T> $vec
-)[]: AnyArray<int, T> {
+function downgrade_vecish<T>(vec<T> $vec)[]: AnyArray<int, T> {
   return $vec;
 }
 
