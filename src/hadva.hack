@@ -30,6 +30,20 @@ function array_to_tuple(mixed $array)[]: mixed {
 }
 
 /**
+ * Like array_to_shape, but the type information is retained.
+ */
+function downgrade_dictish(dict<Tk, Tv> $dict)[]: AnyArray<Tk, Tv> {
+  return darray($dict);
+}
+
+/**
+ * Like array_to_tuple, but the type information is retained.
+ */
+function downgrade_vecish(vec<T> $vec)[]: AnyArray<int, T> {
+  return varray($vec);
+}
+
+/**
  * Returns true for `darray<_, _>` and `dict<_, _>`.
  */
 function is_dictish(mixed $mixed)[]: bool {
