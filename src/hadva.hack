@@ -22,14 +22,18 @@ function array_to_tuple(mixed $array)[]: mixed {
 /**
  * Like array_to_shape, but the type information is retained.
  */
-function downgrade_dictish(dict<Tk, Tv> $dict)[]: AnyArray<Tk, Tv> {
+function downgrade_dictish<Tk as arraykey, Tv>(
+  dict<Tk, Tv> $dict
+)[]: AnyArray<Tk, Tv> {
   return $dict;
 }
 
 /**
  * Like array_to_tuple, but the type information is retained.
  */
-function downgrade_vecish(vec<T> $vec)[]: AnyArray<int, T> {
+function downgrade_vecish<T>(
+  vec<T> $vec
+)[]: AnyArray<int, T> {
   return $vec;
 }
 
