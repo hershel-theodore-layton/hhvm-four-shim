@@ -4,7 +4,7 @@ _Supporting hhvm 4 for as long as possible._
 
 ## Branch
 
-You are currently looking at the hhvm version 6 branch of this repository.
+You are currently looking at the hhvm@next (6 and above) branch of this repository.
 
 ## Why is this needed?
 
