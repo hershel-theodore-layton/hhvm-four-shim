@@ -31,6 +31,5 @@ jobs:
         with:
           hhvm: ${{matrix.hhvm}}
           hhvm_flags: ${{ startsWith(matrix.hhvm, '4') && '-dhhvm.autoload.enabled=true -dhhvm.autoload.db.path=.var/facts.db' || '' }}
-          skip_lint: ${{matrix.hhvm == '4.102'}}
           lint_engine: pha
           skip_tests: true
