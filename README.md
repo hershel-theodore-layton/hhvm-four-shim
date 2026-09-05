@@ -10,7 +10,7 @@ You are currently looking at the hhvm@next (6 and above) branch of this reposito
 
 HTL software supports a large range of hhvm versions. Older hhvm versions need
 some arcane incantations that newer hhvm versions do not support anymore. This
-library allows me provide two definitions for one function, and load the right
+library allows me to provide two definitions for one function, and load the right
 one based on your reported hhvm version.
 
 For example, `varray(...)` is not supported on hhvm@next, but required to be
