@@ -2,8 +2,8 @@
 namespace HTL\HH4Shim;
 
 /**
- * Returns `dict<_, _>` on hhvm 4.103+.
- * Returns `darray<_, _>` on hhvm 4.102.
+ * Returns `dict<_, _>` on HHVM 4.103+.
+ * Returns `darray<_, _>` on HHVM 4.102.
  */
 function array_to_shape(mixed $array)[]: mixed {
   invariant(
@@ -15,8 +15,8 @@ function array_to_shape(mixed $array)[]: mixed {
 }
 
 /**
- * Returns `vec<_>` on hhvm 4.103+.
- * Returns `varray<_>` on hhvm 4.102.
+ * Returns `vec<_>` on HHVM 4.103+.
+ * Returns `varray<_>` on HHVM 4.102.
  */
 function array_to_tuple(mixed $array)[]: mixed {
   invariant(
