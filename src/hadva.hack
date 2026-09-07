@@ -1,6 +1,8 @@
 /** hhvm-four-shim is MIT licensed, see /LICENSE */
 namespace HTL\HH4Shim;
 
+use function gettype;
+
 /**
  * Returns `dict<_, _>` on HHVM 4.103+.
  * Returns `darray<_, _>` on HHVM 4.102.
@@ -9,7 +11,7 @@ function array_to_shape(mixed $array)[]: mixed {
   invariant(
     $array is dict<_, _>,
     'Expected a shape, got %s',
-    \gettype($array) as string,
+    gettype($array) as string,
   );
   return $array;
 }
@@ -22,7 +24,7 @@ function array_to_tuple(mixed $array)[]: mixed {
   invariant(
     $array is vec<_>,
     'Expected a tuple, got %s',
-    \gettype($array) as string,
+    gettype($array) as string,
   );
   return $array;
 }
