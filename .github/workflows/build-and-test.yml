@@ -16,8 +16,6 @@ jobs:
       fail-fast: false
       matrix:
         hhvm:
-          - "4.102"
-          - "4.128"
           - "4.153"
           - "4.168"
     runs-on: ubuntu-24.04
@@ -29,17 +27,7 @@ jobs:
         run: |
           git config --global --add safe.directory $(pwd)
           git checkout -b CI_current_pull_request
-      # HHVM 4.102 predates the built-in HSL used by the current Composer resolver.
-      - if: matrix.hhvm == '4.102'
-        uses: hershel-theodore-layton/actions/hack-lint-test@9b4fbaf87cbdf7b29d2e5b7b47402ff628de0868
-        with:
-          hhvm: ${{matrix.hhvm}}
-          hhvm_flags: -dhhvm.autoload.enabled=true -dhhvm.autoload.db.path=.var/facts.db
-          skip_lint: true
-          skip_tests: true
-          typecheck_engine: hh_server
-      - if: matrix.hhvm != '4.102'
-        uses: hershel-theodore-layton/actions/hack-lint-test@master
+      - uses: hershel-theodore-layton/actions/hack-lint-test@master
         with:
           hhvm: ${{matrix.hhvm}}
           hhvm_flags: -dhhvm.autoload.enabled=true -dhhvm.autoload.db.path=.var/facts.db

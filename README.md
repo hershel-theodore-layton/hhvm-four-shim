@@ -6,7 +6,7 @@ _Supporting HHVM 4 for as long as possible._
 
 | HHVM version | Implementation branch | Package constraint |
 | --- | --- | --- |
-| HHVM 4 | `backports` (`hhvm ^4`) | `^0.4` |
+| HHVM 4.153 or later in the 4.x series | `backports` (`hhvm ^4.153`) | `^0.4` |
 | HHVM after 4 | `master` (`hhvm >=5`) | `^0.6` |
 
 To support both families, require
