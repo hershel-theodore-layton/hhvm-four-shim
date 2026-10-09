@@ -10,7 +10,7 @@ _Supporting HHVM 4 for as long as possible._
 | HHVM after 4 | `master` (`hhvm >=5`) | `^0.6` |
 
 To support both families, require
-`"hershel-theodore-layton/hhvm-four-shim": "^0.4 || ^0.6"`.
+`"hershel-theodore-layton/hhvm-four-shim": "<1"`.
 [Composer](https://getcomposer.org/doc/01-basic-usage.md) selects the package
 line during dependency resolution using the reported HHVM version; there is
 no runtime switch. `^0.6` alone cannot resolve on HHVM 4.
