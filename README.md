@@ -23,10 +23,3 @@ HHVM versions; Composer's broader requirement does not imply testing.
 The two package lines provide a common API for HTL across HHVM versions.
 For example, `downgrade_vecish` uses `varray(...)` on HHVM 4 and returns the
 input `vec` unchanged on `master`.
-
-## Legacy HHVM 4 support
-
-The announced cutoff for unofficial HTL support for HHVM 4.151 and below was
-September 1, 2025. HHVM 4.153 through 4.168 remain legacy support targets with
-no announced end date. Backports still accepts older versions through `^4`;
-installability does not imply continued support.
