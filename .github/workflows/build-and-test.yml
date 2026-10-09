@@ -29,11 +29,20 @@ jobs:
         run: |
           git config --global --add safe.directory $(pwd)
           git checkout -b CI_current_pull_request
-      - uses: hershel-theodore-layton/actions/hack-lint-test@master
+      # HHVM 4.102 predates the built-in HSL used by the current Composer resolver.
+      - if: matrix.hhvm == '4.102'
+        uses: hershel-theodore-layton/actions/hack-lint-test@9b4fbaf87cbdf7b29d2e5b7b47402ff628de0868
         with:
           hhvm: ${{matrix.hhvm}}
           hhvm_flags: -dhhvm.autoload.enabled=true -dhhvm.autoload.db.path=.var/facts.db
-          skip_lint: ${{matrix.hhvm == '4.102'}}
+          skip_lint: true
+          skip_tests: true
+          typecheck_engine: hh_server
+      - if: matrix.hhvm != '4.102'
+        uses: hershel-theodore-layton/actions/hack-lint-test@master
+        with:
+          hhvm: ${{matrix.hhvm}}
+          hhvm_flags: -dhhvm.autoload.enabled=true -dhhvm.autoload.db.path=.var/facts.db
           lint_engine: pha
           skip_tests: true
           typecheck_engine: hh_server
