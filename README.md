@@ -4,13 +4,12 @@ _Supporting HHVM 4 for as long as possible._
 
 ## Versions and package selection
 
-This is the `master` branch for newer HHVM versions. Its Composer requirement
-is `hhvm >=5`; the corresponding releases are `0.6.x`.
+This is the `master` branch for HHVM releases after 4.
 
 | HHVM version | Implementation branch | Package constraint |
 | --- | --- | --- |
 | HHVM 4 | `backports` (`hhvm ^4`) | `^0.4` |
-| HHVM 5 and above | `master` (`hhvm >=5`) | `^0.6` |
+| HHVM after 4 | `master` (`hhvm >=5`) | `^0.6` |
 
 Applications that support both families can require
 `"hershel-theodore-layton/hhvm-four-shim": "^0.4 || ^0.6"`.
@@ -20,9 +19,8 @@ version and the application's constraints. A constraint of `^0.6` alone cannot
 resolve on HHVM 4. An existing lock file keeps its selected release until an
 update; this checkout does not switch implementations at runtime.
 
-The current [master CI matrix](.github/workflows/build-and-test.yml) checks HHVM
-25.6.0, 25.7.0, 25.11.0, 26.03.28, 26.06.05, 26.09.29, and beta. Composer
-accepting other versions at or above 5 does not establish that they have been
+The [master CI matrix](.github/workflows/build-and-test.yml) lists the tested
+HHVM versions. Composer accepting a version does not establish that it has been
 tested. HHVM 4 is handled separately on `backports`.
 
 ## Why is this needed?
