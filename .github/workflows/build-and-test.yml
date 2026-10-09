@@ -8,8 +8,7 @@ on:
   pull_request:
   workflow_dispatch:
   schedule:
-    # Run every day at 6:14PM
-    - cron: "14 18 * * *"
+    - cron: "24 18 * * FRI"
 jobs:
   build:
     name: HHVM ${{matrix.hhvm}}
@@ -25,7 +24,7 @@ jobs:
     container:
       image: hhvm/hhvm:${{matrix.hhvm}}-latest
     steps:
-      - uses: actions/checkout@v2
+      - uses: actions/checkout@v7
       - name: Create branch for version alias
         run: |
           git config --global --add safe.directory $(pwd)
@@ -33,7 +32,8 @@ jobs:
       - uses: hershel-theodore-layton/actions/hack-lint-test@master
         with:
           hhvm: ${{matrix.hhvm}}
-          hhvm_flags: -dhhvm.autoload.enabled=true -dhhvm.autoload.db.path=.var/facts-%{euid}-%{schema}.db
+          hhvm_flags: -dhhvm.autoload.enabled=true -dhhvm.autoload.db.path=.var/facts.db
           skip_lint: ${{matrix.hhvm == '4.102'}}
           lint_engine: pha
           skip_tests: true
+          typecheck_engine: hh_server

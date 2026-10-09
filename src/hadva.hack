@@ -3,28 +3,30 @@ namespace HTL\HH4Shim;
 
 use namespace HH;
 
+use function gettype;
+
 /**
- * Returns `dict<_, _>` on hhvm 4.103+.
- * Returns `darray<_, _>` on hhvm 4.102.
+ * Returns `dict<_, _>` on HHVM 4.103+.
+ * Returns `darray<_, _>` on HHVM 4.102.
  */
 function array_to_shape(mixed $array)[]: mixed {
   invariant(
     HH\is_dict_or_darray($array),
     'Expected a shape, got %s',
-    \gettype($array)
+    gettype($array) as string,
   );
   return darray($array);
 }
 
 /**
- * Returns `vec<_>` on hhvm 4.103+.
- * Returns `varray<_>` on hhvm 4.102.
+ * Returns `vec<_>` on HHVM 4.103+.
+ * Returns `varray<_>` on HHVM 4.102.
  */
 function array_to_tuple(mixed $array)[]: mixed {
   invariant(
     HH\is_vec_or_varray($array),
     'Expected a tuple, got %s',
-    \gettype($array)
+    gettype($array) as string,
   );
   return varray($array);
 }
@@ -33,7 +35,7 @@ function array_to_tuple(mixed $array)[]: mixed {
  * Like array_to_shape, but the type information is retained.
  */
 function downgrade_dictish<Tk as arraykey, Tv>(
-  dict<Tk, Tv> $dict
+  dict<Tk, Tv> $dict,
 )[]: AnyArray<Tk, Tv> {
   return darray($dict);
 }

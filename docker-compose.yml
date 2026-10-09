@@ -1,0 +1,12 @@
+services:
+  hhvm:
+    container_name: theodore-hhvm-four-shim-container
+    build:
+      context: .
+      dockerfile: ./Dockerfile
+    volumes:
+      - type: bind
+        source: .
+        target: /mnt/project
+    ports:
+      - 48547:10641
